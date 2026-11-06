@@ -23,7 +23,7 @@
     const editable=el.isContentEditable, type=editable?'contenteditable':(el.type||el.tagName.toLowerCase());
     const count=editable?(el.textContent||'').length:(el.value||'').length;
     const payload={project_token:projectToken,event_type:'text_field_input',field_label:labelFor(el),field_type:String(type).slice(0,40),character_count:Math.min(count,100000),page_path:location.pathname.slice(0,2048)};
-    try { await fetch(`${endpoint}/rest/v1/text_events`,{method:'POST',headers:{'Content-Type':'application/json','apikey':anonKey,'Authorization':`Bearer ${anonKey}`,'Prefer':'return=minimal'},body:JSON.stringify(payload),keepalive:true}); } catch (_) {}
+    try { await fetch(`${endpoint}/rest/v1/text_events`,{method:'POST',headers:{'Content-Type':'application/json','apikey':anonKey,'Prefer':'return=minimal'},body:JSON.stringify(payload),keepalive:true}); } catch (error) { console.error('Text analytics event failed:', error); }
   };
   const attach=()=>{showConsent();document.addEventListener('input',e=>{const el=e.target;if(!(el instanceof HTMLInputElement||el instanceof HTMLTextAreaElement||el?.isContentEditable))return;if(el instanceof HTMLInputElement&&['password','hidden','submit','button','checkbox','radio','file'].includes(el.type))return;send(el);},true);};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',attach,{once:true});else attach();
