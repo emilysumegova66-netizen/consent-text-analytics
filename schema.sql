@@ -1,0 +1,5 @@
+-- Supabase project schema was already provisioned and verified.
+-- public.tracking_projects: owners manage their own projects and public tokens.
+-- public.text_events: anonymous visitors can INSERT minimal event metadata;
+-- authenticated owners can SELECT only events linked to their own projects.
+-- Row-level security is enabled on both tables.

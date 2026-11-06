@@ -1,12 +1,13 @@
-# Consent-based text interaction analytics
+# Consent-based text activity analytics
 
-A lightweight dashboard and embeddable tracker. Tracking starts only after visitors accept the consent prompt. It records only field type, an optional developer-supplied `data-analytics-label`, character count, page path and timestamp. It never sends the text typed or keystrokes. Password, email, telephone, number, hidden and file inputs are excluded; fields marked `data-private` are ignored.
+Static dashboard hosted with GitHub Pages; Supabase provides authentication and storage.
 
-## Use
-1. Create an account on the dashboard and sign in.
-2. Create a tracking project.
-3. Copy the generated embed snippet into a website you own or administer.
-4. Optionally label a field with `data-analytics-label="contact-message"` (avoid personal data).
-5. Tell visitors what is collected and obtain consent as required by applicable law.
+## Use it
+1. Open the GitHub Pages site and create a dashboard account.
+2. Sign in. The dashboard creates an owned tracking project and generates an install snippet.
+3. Copy that snippet and paste it immediately before `</body>` on your website.
+4. Visitors see an Allow / Decline consent prompt. Only after Allow, the tracker sends field label, field type, page path and character count.
+5. Refresh the dashboard to see activity.
 
-The public browser key is intended for client use. Never put a Supabase service-role or secret key in browser code. The SQL schema is available in `supabase/schema.sql`.
+## Privacy and security
+This tracker does **not** read or transmit typed text, keystrokes, passwords, or form values. Password/hidden fields and common payment-card autocomplete fields are excluded. The database uses row-level security: anonymous visitors can submit minimal events; signed-in owners can read events for their own tracking projects. The browser key is a public anon key, not a service-role secret. Review your site's privacy notice, consent requirements and retention policy before production use.
