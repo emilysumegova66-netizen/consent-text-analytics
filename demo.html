@@ -12,7 +12,7 @@
 <p class="muted">After typing, open your dashboard in another tab and press Refresh. Events may take a few seconds to appear.</p></section>
 </main><script>
 const ENDPOINT='https://mwhsrggqmzrlbnrnkgjs.supabase.co';
-const KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im13aHNyZ2dxbXpybGJucm5rZ2pzIiwiaWF0IjoxNzk0MDAzODMsImV4cCI6MjEwOTU3NjM4M30.rlQbSvZPnDIIvxcVOpVdjt-XUA7ZH_ON6V9KGlQJGYI';
+const KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im13aHNyZ2dxbXpybGJucm5rZ2pzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQwMDM4MywiZXhwIjoyMTA5NTc2MzgzfQ.rlQbSvZPnDIIvxcVOpVdjt-XUA7ZH_ON6V9KGlQJGYI';
 const tokenInput=document.getElementById('token');const params=new URLSearchParams(location.search);if(params.get('project'))tokenInput.value=params.get('project');
 document.getElementById('connect').addEventListener('click',()=>{const token=tokenInput.value.trim();if(!token){alert('Paste the project token from your dashboard first.');return;}const script=document.createElement('script');script.src='https://emilysumegova66-netizen.github.io/consent-text-analytics/tracker.js';script.dataset.project=token;script.dataset.endpoint=ENDPOINT;script.dataset.key=KEY;script.defer=true;document.body.appendChild(script);document.getElementById('setup').hidden=true;document.getElementById('sample').hidden=false;document.getElementById('connected').textContent='Tracker loaded for project '+token+'. Accept the consent prompt, then type in the sample fields.';});
 </script></body></html>
